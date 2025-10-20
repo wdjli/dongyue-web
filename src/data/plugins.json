@@ -1,0 +1,147 @@
+[
+  {
+    "name": "天气查询插件",
+    "description": "快速查询全国各地的实时天气信息，支持多城市查询和天气预报功能，让您随时掌握天气变化。",
+    "author": "冬月",
+    "version": "1.2.0",
+    "icon": "🌤️",
+    "tags": ["天气", "查询", "实用"],
+    "downloads": 1520,
+    "downloadUrl": "/downloads/weather-plugin.zip",
+    "image": "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=400&h=300",
+    "docUrl": "/docs/weather-plugin.md",
+    "updateTime": "2025-01-15",
+    "compatibility": ["Astrabot v2.0+", "Python 3.8+"],
+    "trending": "hot",
+    "cardBg": "/ces1.jpg"
+  },
+  {
+    "name": "音乐点歌插件",
+    "description": "支持网易云音乐、QQ音乐等平台的点歌功能，让聊天机器人变身点歌台，随时为您播放喜欢的音乐。",
+    "author": "冬月",
+    "version": "2.0.1",
+    "icon": "🎵",
+    "tags": ["音乐", "娱乐", "点歌"],
+    "downloads": 2340,
+    "downloadUrl": "/downloads/music-plugin.zip",
+    "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=300",
+    "docUrl": "/docs/music-plugin.md",
+    "updateTime": "2025-01-18",
+    "compatibility": ["Astrabot v1.8+", "所有平台"],
+    "trending": "rising",
+    "cardBg": "/ces2.jpg"
+  },
+  {
+    "name": "签到系统插件",
+    "description": "完整的用户签到系统，支持积分累计、连续签到奖励、排行榜等功能，增强用户互动体验。",
+    "author": "冬月",
+    "version": "1.5.3",
+    "icon": "✅",
+    "tags": ["签到", "积分", "互动"],
+    "downloads": 890,
+    "downloadUrl": "/downloads/checkin-plugin.zip",
+    "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300",
+    "docUrl": "/docs/checkin-plugin.md",
+    "updateTime": "2024-12-20",
+    "compatibility": ["Astrabot v2.0+"],
+    "trending": "stable",
+    "cardBg": "/ces3.jpg"
+  },
+  {
+    "name": "AI对话增强",
+    "description": "集成先进的AI对话模型，让机器人回复更加智能、自然，支持上下文记忆和个性化回复。",
+    "author": "冬月",
+    "version": "3.1.0",
+    "icon": "🤖",
+    "tags": ["AI", "对话", "智能"],
+    "downloads": 3210,
+    "downloadUrl": "/downloads/ai-chat-plugin.zip",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=300",
+    "docUrl": "/docs/ai-chat-plugin.md",
+    "updateTime": "2025-01-20",
+    "compatibility": ["Astrabot v2.1+", "需要API密钥"],
+    "trending": "hot",
+    "cardBg": "/ces4.jpg"
+  },
+  {
+    "name": "图片生成器",
+    "description": "基于AI的图片生成工具，支持文字转图片、表情包制作、头像生成等多种创意功能。",
+    "author": "冬月",
+    "version": "1.8.2",
+    "icon": "🎨",
+    "tags": ["图片", "生成", "创意"],
+    "downloads": 1780,
+    "downloadUrl": "/downloads/image-gen-plugin.zip"
+  },
+  {
+    "name": "群管理助手",
+    "description": "强大的群组管理工具，包含关键词回复、自动踢人、欢迎新成员、违禁词检测等功能。",
+    "author": "冬月",
+    "version": "2.3.1",
+    "icon": "👮",
+    "tags": ["管理", "群组", "工具"],
+    "downloads": 1450,
+    "downloadUrl": "/downloads/group-admin-plugin.zip"
+  },
+  {
+    "name": "翻译插件",
+    "description": "支持多国语言互译，集成谷歌、百度、有道等多个翻译引擎，准确率高，响应速度快。",
+    "author": "冬月",
+    "version": "1.4.0",
+    "icon": "🌍",
+    "tags": ["翻译", "语言", "实用"],
+    "downloads": 670,
+    "downloadUrl": "/downloads/translate-plugin.zip"
+  },
+  {
+    "name": "游戏娱乐包",
+    "description": "包含猜数字、成语接龙、谁是卧底等多款小游戏，为群聊增添更多乐趣和互动。",
+    "author": "冬月",
+    "version": "2.1.5",
+    "icon": "🎮",
+    "tags": ["游戏", "娱乐", "互动"],
+    "downloads": 2100,
+    "downloadUrl": "/downloads/games-plugin.zip"
+  },
+  {
+    "name": "数据统计插件",
+    "description": "详细的机器人使用数据统计，包括消息量、活跃用户、功能使用频率等，支持图表展示。",
+    "author": "冬月",
+    "version": "1.6.0",
+    "icon": "📊",
+    "tags": ["统计", "数据", "分析"],
+    "downloads": 530,
+    "downloadUrl": "/downloads/stats-plugin.zip"
+  },
+  {
+    "name": "定时任务插件",
+    "description": "灵活的定时任务系统，支持定时发送消息、定时提醒、定时执行命令等功能，可自定义时间规则。",
+    "author": "冬月",
+    "version": "1.3.2",
+    "icon": "⏰",
+    "tags": ["定时", "任务", "提醒"],
+    "downloads": 820,
+    "downloadUrl": "/downloads/scheduler-plugin.zip"
+  },
+  {
+    "name": "新闻推送插件",
+    "description": "自动获取并推送最新新闻资讯，支持多个新闻源，可定制推送频率和内容分类。",
+    "author": "冬月",
+    "version": "1.7.1",
+    "icon": "📰",
+    "tags": ["新闻", "资讯", "推送"],
+    "downloads": 950,
+    "downloadUrl": "/downloads/news-plugin.zip"
+  },
+  {
+    "name": "表情包搜索",
+    "description": "海量表情包资源库，支持关键词搜索、随机表情、自定义收藏等功能，让聊天更有趣。",
+    "author": "冬月",
+    "version": "2.2.0",
+    "icon": "😂",
+    "tags": ["表情包", "搜索", "娱乐"],
+    "downloads": 1890,
+    "downloadUrl": "/downloads/meme-plugin.zip"
+  }
+]
+
