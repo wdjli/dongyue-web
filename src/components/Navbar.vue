@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar fixed top-0 z-50 px-4 lg:px-8 w-full">
+  <div class="navbar fixed top-0 z-50 px-4 lg:px-8 w-full glass-navbar">
     <div class="navbar-start">
       <MobileMenu :is-home="isHome" />
       <Logo />
@@ -32,14 +32,21 @@ defineEmits(['toggle-theme'])
   @apply bg-base-300 text-primary;
 }
 
-/* 统一导航栏样式 - 完全融入背景 */
-.navbar {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: transparent;
-  border-bottom: none;
-  box-shadow: none;
+/* 毛玻璃导航栏样式 */
+.glass-navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15); /* 浅色主题默认背景 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
   animation: slideDown 0.5s ease-out;
+}
+
+/* 深色主题下的毛玻璃效果 */
+[data-theme="dark"] .glass-navbar {
+  background: rgba(30, 30, 30, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* 导航栏文字 - 统一样式 */
@@ -52,30 +59,34 @@ defineEmits(['toggle-theme'])
 /* 导航栏按钮 - 浅色主题 */
 [data-theme="light"] .navbar .btn-circle,
 [data-theme="light"] .navbar .swap {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 [data-theme="light"] .navbar .btn-circle:hover,
 [data-theme="light"] .navbar .swap:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.35);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 导航栏按钮 - 深色主题 */
 [data-theme="dark"] .navbar .btn-circle,
 [data-theme="dark"] .navbar .swap {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="dark"] .navbar .btn-circle:hover,
 [data-theme="dark"] .navbar .swap:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -90,4 +101,3 @@ defineEmits(['toggle-theme'])
   }
 }
 </style>
-
