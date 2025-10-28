@@ -31,7 +31,7 @@
                :style="{ animationDelay: skipAnimationDelay ? '0.3s' : '0.1s' }">
             <div class="avatar-container">
               <img 
-                src="/冬.png" 
+                src="/img/冬.png" 
                 alt="冬月" 
                 class="avatar-image" 
                 :class="{ 'avatar-active': isAvatarActive }"

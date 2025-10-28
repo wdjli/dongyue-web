@@ -25,18 +25,27 @@
         <div class="text-sm opacity-70 author-info">
           <span>作者: {{ plugin.author }}</span>
         </div>
-        <button class="btn btn-primary btn-sm btn-download" @click="$emit('download', plugin)">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
+        <BaseButton 
+          variant="primary" 
+          size="sm" 
+          animated
+          @click="$emit('download', plugin)"
+        >
+          <template #icon>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </template>
           下载
-        </button>
+        </BaseButton>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import BaseButton from './BaseButton.vue'
+
 defineProps({
   plugin: {
     type: Object,
@@ -116,39 +125,4 @@ const getInitial = (name) => {
 .plugin-card:hover .author-info {
   opacity: 1 !important;
 }
-
-/* 下载按钮动画 */
-.btn-download {
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-download::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s;
-}
-
-.btn-download:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btn-download:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-
-.btn-download:active {
-  transform: translateY(0);
-}
 </style>
-

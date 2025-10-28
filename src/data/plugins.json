@@ -13,7 +13,7 @@
     "updateTime": "2025-01-15",
     "compatibility": ["Astrabot v2.0+", "Python 3.8+"],
     "trending": "hot",
-    "cardBg": "/ces1.jpg"
+    "cardBg": "/img/ces1.jpg"
   },
   {
     "name": "音乐点歌插件",
@@ -29,7 +29,7 @@
     "updateTime": "2025-01-18",
     "compatibility": ["Astrabot v1.8+", "所有平台"],
     "trending": "rising",
-    "cardBg": "/ces2.jpg"
+    "cardBg": "/img/ces2.jpg"
   },
   {
     "name": "签到系统插件",
@@ -45,7 +45,7 @@
     "updateTime": "2024-12-20",
     "compatibility": ["Astrabot v2.0+"],
     "trending": "stable",
-    "cardBg": "/ces3.jpg"
+    "cardBg": "/img/ces3.jpg"
   },
   {
     "name": "AI对话增强",
@@ -61,7 +61,7 @@
     "updateTime": "2025-01-20",
     "compatibility": ["Astrabot v2.1+", "需要API密钥"],
     "trending": "hot",
-    "cardBg": "/ces4.jpg"
+    "cardBg": "/img/ces4.jpg"
   },
   {
     "name": "图片生成器",
