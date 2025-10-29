@@ -17,6 +17,7 @@
   - 悬停交互动画
   - 背景浮动元素
   - 平滑过渡效果
+- 🧩 组件化架构，易于维护和扩展
 
 ## 🚀 快速开始
 
@@ -51,21 +52,33 @@ npm run preview
 ```
 dongyue-astrbot-web/
 ├── src/
-│   ├── components/      # 组件
-│   │   ├── Navbar.vue   # 导航栏（含动画效果）
-│   │   ├── Footer.vue   # 页脚（含动画效果）
-│   │   └── PluginCard.vue # 插件卡片（含交互动画）
-│   ├── views/           # 页面
-│   │   ├── Home.vue     # 首页（Hero大屏+统计）
-│   │   ├── Featured.vue # 推荐插件页
-│   │   ├── Plugins.vue  # 插件展示页（所有插件）
-│   │   └── Download.vue # 下载页（含安装指南）
-│   ├── router/          # 路由配置
-│   ├── data/            # 数据文件
-│   │   └── plugins.json # 插件数据（12个示例插件）
-│   ├── App.vue          # 根组件（主题管理）
-│   ├── main.js          # 入口文件
-│   └── style.css        # 全局样式
+│   ├── components/          # 组件
+│   │   ├── Navbar.vue       # 导航栏（含毛玻璃效果）
+│   │   ├── Footer.vue       # 页脚（含动画效果）
+│   │   ├── PluginCard.vue   # 插件卡片（含交互动画）
+│   │   ├── FeaturedPluginCard.vue # 精选插件卡片
+│   │   ├── BaseButton.vue   # 基础按钮组件
+│   │   ├── BaseCard.vue     # 基础卡片组件
+│   │   └── home/            # 首页组件目录
+│   │       ├── HomeSplashScreen.vue    # 开屏动画组件
+│   │       ├── HomeHeroSection.vue     # 首页主体区域组件
+│   │       ├── HomeAvatar.vue          # 头像组件
+│   │       ├── HomeTitle.vue           # 标题组件
+│   │       ├── HomeSubtitle.vue        # 副标题组件
+│   │       ├── HomeDescription.vue     # 描述文字组件
+│   │       ├── HomeStats.vue           # 统计数据组件
+│   │       └── HomeButtons.vue         # 按钮组件
+│   ├── views/               # 页面
+│   │   ├── Home.vue         # 首页（Hero大屏+统计）
+│   │   ├── Featured.vue     # 推荐插件页
+│   │   ├── Plugins.vue      # 插件展示页（所有插件）
+│   │   └── Download.vue     # 下载页（含安装指南）
+│   ├── router/              # 路由配置
+│   ├── data/                # 数据文件
+│   │   └── plugins.json     # 插件数据（12个示例插件）
+│   ├── App.vue              # 根组件（主题管理）
+│   ├── main.js              # 入口文件
+│   └── style.css            # 全局样式
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -98,7 +111,7 @@ dongyue-astrbot-web/
   - 统计数据展示
   - 滚动提示引导
   - 无页脚，纯净美观
-- **推荐插件** (`/featured`): 展示精选的9个推荐插件
+- **推荐插件** (`/featured`): 展示精选的插件
 - **插件展示** (`/plugins`): 展示所有可用插件，带渐入动画
 - **下载中心** (`/download`): 插件下载列表和详细的安装指南
 
@@ -126,6 +139,14 @@ dongyue-astrbot-web/
 - **GitHub图标**: 旋转360度动画
 - **滚动提示**: 底部引导箭头，弹跳动画
 
+## 🧩 组件化架构
+
+为了提高代码的可维护性和可读性，项目采用了组件化架构：
+
+- **首页组件拆分**: 首页已被拆分为多个小组件，包括开屏动画、主体区域、头像、标题、副标题、统计数据、按钮和描述文字等组件
+- **导航栏和页脚**: 已经模块化为独立组件，便于维护和复用
+- **插件卡片**: 分为普通插件卡片和精选插件卡片，满足不同场景需求
+
 ## 🎨 主题定制
 
 在 `tailwind.config.js` 中修改主题颜色和配置。当前使用黑白灰主色调。
@@ -137,4 +158,4 @@ MIT
 ## 👨‍💻 作者
 
 冬月
-
+杨yang

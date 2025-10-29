@@ -1,55 +1,24 @@
 <template>
-  <div class="navbar fixed top-0 z-50 px-4 lg:px-8 w-full">
+  <div class="navbar fixed top-0 z-50 px-4 lg:px-8 w-full glass-navbar">
     <div class="navbar-start">
-      <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
-          </svg>
-        </label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52" :class="isHome ? 'bg-base-100/95 backdrop-blur' : 'bg-base-200'">
-          <li><router-link to="/" class="text-base">首页</router-link></li>
-          <li><router-link to="/featured" class="text-base">推荐插件</router-link></li>
-          <li><router-link to="/plugins" class="text-base">插件展示</router-link></li>
-          <li><router-link to="/download" class="text-base">下载</router-link></li>
-          <li><router-link to="/customize" class="text-base">定制</router-link></li>
-        </ul>
-      </div>
-      <router-link to="/" class="btn btn-ghost normal-case text-xl font-bold">
-        Dongyue的插件市场
-      </router-link>
+      <MobileMenu :is-home="isHome" />
+      <Logo />
     </div>
-    <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal px-1 gap-2">
-        <li><router-link to="/" class="text-base font-medium">首页</router-link></li>
-        <li><router-link to="/featured" class="text-base font-medium">推荐插件</router-link></li>
-        <li><router-link to="/plugins" class="text-base font-medium">插件展示</router-link></li>
-        <li><router-link to="/download" class="text-base font-medium">下载</router-link></li>
-        <li><router-link to="/customize" class="text-base font-medium">定制</router-link></li>
-      </ul>
-    </div>
+    <DesktopMenu />
     <div class="navbar-end gap-2">
-      <a href="https://github.com" target="_blank" class="btn btn-ghost btn-circle">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-        </svg>
-      </a>
-      <label class="swap swap-rotate btn btn-ghost btn-circle">
-        <input type="checkbox" :checked="theme === 'dark'" @change="$emit('toggle-theme')" />
-        <!-- sun icon -->
-        <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
-        </svg>
-        <!-- moon icon -->
-        <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
-        </svg>
-      </label>
+      <GithubLink />
+      <ThemeToggle :theme="theme" @toggle-theme="$emit('toggle-theme')" />
     </div>
   </div>
 </template>
 
 <script setup>
+import MobileMenu from './navbar/MobileMenu.vue'
+import Logo from './navbar/Logo.vue'
+import DesktopMenu from './navbar/DesktopMenu.vue'
+import GithubLink from './navbar/GithubLink.vue'
+import ThemeToggle from './navbar/ThemeToggle.vue'
+
 defineProps({
   theme: String,
   isHome: Boolean
@@ -63,14 +32,21 @@ defineEmits(['toggle-theme'])
   @apply bg-base-300 text-primary;
 }
 
-/* 统一导航栏样式 - 完全融入背景 */
-.navbar {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: transparent;
-  border-bottom: none;
-  box-shadow: none;
+/* 毛玻璃导航栏样式 */
+.glass-navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.15); /* 浅色主题默认背景 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
   animation: slideDown 0.5s ease-out;
+}
+
+/* 深色主题下的毛玻璃效果 */
+[data-theme="dark"] .glass-navbar {
+  background: rgba(30, 30, 30, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* 导航栏文字 - 统一样式 */
@@ -83,30 +59,34 @@ defineEmits(['toggle-theme'])
 /* 导航栏按钮 - 浅色主题 */
 [data-theme="light"] .navbar .btn-circle,
 [data-theme="light"] .navbar .swap {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 [data-theme="light"] .navbar .btn-circle:hover,
 [data-theme="light"] .navbar .swap:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.35);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 导航栏按钮 - 深色主题 */
 [data-theme="dark"] .navbar .btn-circle,
 [data-theme="dark"] .navbar .swap {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 [data-theme="dark"] .navbar .btn-circle:hover,
 [data-theme="dark"] .navbar .swap:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -120,55 +100,4 @@ defineEmits(['toggle-theme'])
     opacity: 1;
   }
 }
-
-/* 导航链接悬停动画 */
-.menu li a {
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.menu li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--fallback-p,oklch(var(--p)));
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
-}
-
-.menu li a:hover::after {
-  width: 80%;
-}
-
-/* Logo 动画 */
-.btn-ghost {
-  transition: all 0.3s ease;
-}
-
-.btn-ghost:hover {
-  transform: scale(1.05);
-}
-
-/* 按钮圈动画 */
-.btn-circle {
-  transition: all 0.3s ease;
-}
-
-.btn-circle:hover {
-  transform: rotate(360deg);
-  background: var(--fallback-bc,oklch(var(--bc)/0.1));
-}
-
-/* 主题切换动画 */
-.swap {
-  transition: transform 0.3s ease;
-}
-
-.swap:hover {
-  transform: scale(1.1);
-}
 </style>
-

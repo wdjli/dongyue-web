@@ -3,32 +3,31 @@
     <!-- 首页背景图片 - 在组件外层，不参与页面切换动画 -->
     <transition name="bg-fade">
       <div v-if="isHomePage && !isShowingSplash" class="home-bg-wrapper-app">
-        <img src="/11.jpg" alt="背景" class="home-bg-image-app" />
+        <img src="/img/11.jpg" alt="背景" class="home-bg-image-app" />
       </div>
     </transition>
 
-    <Navbar 
+    <Layout 
       v-show="!isShowingSplash"
       @toggle-theme="toggleTheme" 
       :theme="theme" 
-      :is-home="isHomePage" 
-    />
-    <main :class="{ 'no-padding': isHomePage }">
+      :is-home="isHomePage"
+      :no-padding="isHomePage"
+      :show-footer="!isHomePage"
+    >
       <router-view v-slot="{ Component, route }">
         <transition :name="getTransitionName(route)" mode="out-in">
           <component :is="Component" :key="route.path" @splash-status="handleSplashStatus" />
         </transition>
       </router-view>
-    </main>
-    <Footer v-if="!isHomePage" />
+    </Layout>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useRoute } from 'vue-router'
-import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
+import Layout from './components/Layout.vue'
 
 const theme = ref('light')
 const route = useRoute()
@@ -106,17 +105,6 @@ onMounted(() => {
   opacity: 0;
 }
 
-/* 为固定导航栏留出空间 */
-main {
-  padding-top: 64px; /* 导航栏高度 */
-  transition: padding 0.3s ease; /* 平滑过渡 padding 变化 */
-}
-
-main.no-padding {
-  padding: 0;
-  margin: 0;
-}
-
 /* 页面切换动画 - 首页快速淡入 */
 .fade-scale-enter-active {
   transition: opacity 0.3s ease;
@@ -153,10 +141,4 @@ main.no-padding {
   opacity: 0;
   transform: translateX(-30px);
 }
-
-/* 确保过渡期间布局稳定 */
-main {
-  position: relative;
-}
 </style>
-

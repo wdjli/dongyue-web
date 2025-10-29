@@ -86,12 +86,20 @@
 
         <!-- 下载按钮 -->
         <div class="card-actions px-6 pb-6 pt-2 flex-shrink-0">
-          <button class="btn btn-primary btn-block download-btn" @click="$emit('download', plugin)">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 download-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-            </svg>
+          <BaseButton 
+            variant="primary" 
+            size="md" 
+            block 
+            animated
+            @click="$emit('download', plugin)"
+          >
+            <template #icon>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 download-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </template>
             <span class="download-text">下载插件</span>
-          </button>
+          </BaseButton>
         </div>
       </div>
 
@@ -129,6 +137,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 import { marked } from 'marked'
+import BaseButton from './BaseButton.vue'
 
 const props = defineProps({
   plugin: {
@@ -510,15 +519,6 @@ watch(() => props.plugin, () => {
   left: 100%;
 }
 
-/* 下载按钮动画 */
-.download-btn {
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--fallback-p,oklch(var(--p))) 0%, var(--fallback-s,oklch(var(--s))) 100%);
-}
-
 /* 渐变光晕流动效果 */
 .download-btn::before {
   content: '';
@@ -650,5 +650,3 @@ watch(() => props.plugin, () => {
   }
 }
 </style>
-
-
